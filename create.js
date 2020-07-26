@@ -1,3 +1,7 @@
+/**
+ * Create the PubSub topic and subscription used by the
+ * demonstration.
+ */
 const { PubSub } = require('@google-cloud/pubsub');
 
 async function create() {

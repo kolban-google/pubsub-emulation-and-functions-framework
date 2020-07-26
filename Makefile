@@ -1,8 +1,13 @@
+# Makefile for demo of PubSub emulation in conjunction with Functions Framework.
+
 PATH := google-cloud-sdk/bin:$(PATH)
 
 all:
-	@echo "start-pubsub - Start the PubSub emulator"
-	@echo "build        - Build the environment"
+	@echo "start-pubsub  - Start the PubSub emulator"
+	@echo "start-functions-framework - Start the functions framework environment"
+	@echo "create-pubsub - Create the PubSub resources"
+	@echo "publish       - Publish a PubSub message"
+	@echo "build         - Build the environment"
 
 start-pubsub:
 	gcloud beta emulators pubsub start --project=my-project --host-port=localhost:8085
@@ -10,7 +15,7 @@ start-pubsub:
 start-functions-framework:
 	npx functions-framework --target=handleMessage --port=8086 --signature-type=event
 
-create:
+create-pubsub:
 	$$(gcloud beta emulators pubsub env-init); \
 	export GOOGLE_CLOUD_PROJECT="my-project"; \
 	node create.js
