@@ -1,4 +1,6 @@
 # Logs
+google-cloud-sdk
+node*
 logs
 *.log
 npm-debug.log*
